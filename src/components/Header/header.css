@@ -1,0 +1,74 @@
+/* Header component css */
+.header-main {
+  display: flex;
+  justify-content: space-between;
+  height: 73px;
+  align-items: center;
+  background: var(--Neutral-2, #f4f5f6);
+  padding: 16px 40px;
+}
+.headerImage {
+  width: 73px;
+  height: 41px;
+  flex-shrink: 0;
+  background: url("../../../public/assets/Login_header.png"),
+    lightgray 50% / cover no-repeat;
+  background-color: #f4f5f6;
+}
+.ant-dropdown-menu-item .ant-dropdown-menu-item:first-child {
+  background-color: white;
+}
+
+.header-user-name {
+  display: flex;
+  padding: 10px;
+  font-size: 16px;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+}
+.header-dropdown {
+  width: 245px;
+  height: 220px;
+}
+.header-dashboard {
+  display: flex;
+  height: 15px;
+  justify-content: flex-start;
+  padding: 10px 10px;
+  font-weight: 500 !important;
+}
+.header-settings {
+  display: flex;
+  height: 24px;
+  justify-content: flex-start;
+  padding: 10px 10px;
+  border-bottom: 0.4px solid #e6e8ec;
+}
+.header-logout {
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px 10px;
+}
+.header-userLogo {
+  width: 40px;
+  height: 40px;
+  background: #fe632f;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header-usertext {
+  text-transform: uppercase;
+  padding: 5px;
+  color: white;
+  font-family: "General Sans" !important;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500 !important;
+  line-height: 28px; /* 140% */
+}
+.ant-dropdown-menu-item:first-child {
+  background-color: white !important;
+}

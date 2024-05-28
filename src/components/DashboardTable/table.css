@@ -1,0 +1,385 @@
+.name-tag {
+  display: flex;
+  width: 83%;
+  justify-content: space-between;
+  flex-direction: row;
+  margin: auto;
+  margin-top: 20px;
+  height: 60px;
+  font-size: 18px;
+}
+.Dashboard-title {
+  color: #000;
+  font-family: "General Sans";
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 40px; /* 133.333% */
+}
+.dashboard-top {
+  display: flex;
+  width: 64%;
+  justify-content: flex-end;
+  align-self: flex-start;
+}
+.dashboard-top .ant-input {
+  max-width: 370px;
+}
+.dashboard-top .date-btn-wrapper {
+  color: #000 !important;
+  background-color: #f4f5f6 !important;
+  min-width: 164px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  box-shadow: none;
+}
+.dashboard-top .date-btn-wrapper .download-btn {
+  min-width: 100px;
+}
+.ant-upload button {
+  border-radius: 4px;
+  box-shadow: none;
+}
+.ant-upload button,
+.ant-upload button * {
+  cursor: pointer !important;
+}
+.dashboard-top .date-btn-wrapper .calendar-text {
+  font-weight: 500;
+  line-height: 24px;
+  text-transform: capitalize;
+}
+.dashboard-top .date-btn-wrapper .calendar-text.download {
+  width: 100%;
+  font-weight: 600;
+}
+.dashboard-top .date-btn-wrapper .calendar-icon {
+  margin-right: 8px;
+}
+/*------- Search Bar CSS-------- */
+.search-bar {
+  background: #f4f5f6 url("../../../public/assets/dashboard/Group.svg")
+    no-repeat !important;
+  background-position: center left 8px !important;
+  padding-left: 40px !important;
+  border: none !important;
+  height: 44px;
+  width: 367px;
+  border-radius: 4px !important;
+  font-family: "General Sans" !important;
+  font-size: 16px !important;
+  font-style: normal;
+  font-weight: 500 !important;
+  line-height: 24px;
+  color: #000;
+  margin-right: 20px !important;
+}
+.search-bar::placeholder {
+  color: var(--Neutral-4, #b1b5c3) !important;
+  font-weight: 500 !important;
+}
+.calendar-text {
+  color: var(--Neutral-1, #141416);
+  text-align: center;
+  font-family: "General Sans";
+  font-size: 16px !important;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px; /* 175% */
+}
+/* ---------CSV button---------- */
+.csv-button {
+  color: var(--Neutral-1, #fcfcfd);
+  text-align: center;
+  font-family: "General Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px; /* 175% */
+}
+
+/*-------------------- Dashboard Table CSS--------------------- */
+.dashboard-table {
+  width: 83%;
+  margin: 20px auto;
+  max-height: auto;
+  border-radius: 4px;
+  border: 1px solid var(--Neutral-3, #e6e8ec);
+}
+.ant-table-wrapper table tr:hover td {
+  background: #f4f5f6 !important;
+}
+.ant-table-wrapper table tr:hover td:first-child {
+  border-radius: 4px 0 0 4px;
+}
+.ant-table-wrapper table tr:hover td:last-child {
+  border-radius: 0 4px 4px 0;
+}
+.ant-table-wrapper table tr td,
+.ant-table-wrapper table tr th {
+  border-bottom: 0 !important;
+  background: transparent !important;
+}
+.ant-table-wrapper .ant-table-content {
+  padding: 0 12px 0;
+}
+.ant-table-wrapper .ant-table-content table {
+  border-spacing: 0 12px;
+}
+.dashboard-table table tr th,
+.dashboard-table table tr td {
+  font-weight: 500 !important;
+  line-height: 24px;
+}
+.dashboard-table table tr th {
+  font-size: 16px;
+  text-align: left;
+  color: #777e90 !important;
+  background-color: #f4f5f6 !important;
+  font-family: "General Sans";
+  background-color: white;
+  padding: 8px 12px !important;
+}
+.dashboard-table table .ant-table-thead tr .ant-table-row-expand-icon-cell {
+  background-color: #f4f5f6 !important;
+}
+.dashboard-table table tr td {
+  text-align: left;
+  font-size: 16px;
+  font-family: "General Sans";
+  padding: 7px 12px !important;
+  border-bottom: 2px solid #f4f5f6 !important;
+  color: var(--Neutral-8, #141416);
+}
+.dashboard-table table tr th.templateName {
+  display: flex;
+  justify-content: left;
+}
+.dashboard-table table tr th.actions,
+.dashboard-table table tr td.actions {
+  width: 100px;
+}
+
+.dashboard-table table tr th::before {
+  display: none;
+}
+
+.dashtable-pagination {
+  width: 100%;
+  color: orange;
+  margin: 10px auto 20px;
+  display: inline-block;
+}
+.dashtable-pagination .ant-pagination {
+  width: 83%;
+  margin: 0 auto;
+}
+.dashtable-pagination .ant-pagination li {
+  min-width: 30px;
+  width: 30px !important;
+  height: 30px;
+  border-radius: 8px;
+}
+.actions-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+.actions-buttons .btn {
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+}
+.actions-buttons .btn a,
+.actions-buttons .btn span {
+  display: flex;
+}
+.actions-buttons .btn:last-child {
+  margin-right: 0;
+}
+.actions-buttons .btn svg,
+.actions-buttons .btn svg path {
+  cursor: pointer !important;
+}
+.dashtable-pagination .ant-pagination .ant-pagination-item {
+  border-radius: 8px;
+  background-color: #f4f5f6 !important;
+}
+.dashtable-pagination .ant-pagination li button {
+  border-radius: 8px !important;
+  box-shadow: none !important;
+}
+.dashtable-pagination .ant-pagination li,
+.dashtable-pagination .ant-pagination li * {
+  cursor: pointer !important;
+}
+.dashtable-pagination .ant-pagination li.ant-pagination-prev button {
+  background: url(../../../public/assets/dashboard/left.svg) no-repeat;
+  background-position: center;
+}
+.dashtable-pagination .ant-pagination li.ant-pagination-next button {
+  background: url(../../../public/assets/dashboard/right.svg) no-repeat;
+  background-position: center;
+}
+.dashtable-pagination .ant-pagination li button span {
+  display: none;
+}
+.dashtable-pagination .ant-pagination .ant-pagination-item a {
+  font-size: 16px;
+  color: var(--Neutral-900, #34404b);
+  padding: 0;
+  border: none;
+  border-radius: 8px;
+  min-width: 30px;
+  width: 30px !important;
+  height: 30px;
+  box-shadow: none !important;
+}
+.ant-pagination-item-link {
+  border-radius: 8px;
+
+  background-color: #f4f5f6 !important;
+}
+.ant-checkbox-inner {
+  border-color: black !important;
+  border-width: 2px !important;
+  border-radius: 0 !important;
+  width: 18px !important;
+  height: 18px !important;
+  border-radius: 2px !important;
+}
+.ant-checkbox-inner::after {
+  display: flex !important;
+}
+.ant-checkbox-indeterminate .ant-checkbox-inner {
+  border-color: #fd8205 !important;
+}
+.ant-checkbox-checked .ant-checkbox-inner {
+  background-color: #fd8205 !important;
+  border-color: #fd8205 !important;
+}
+.ant-checkbox-inner::after {
+  background: #fd8205 !important;
+}
+.ant-checkbox:hover .ant-checkbox-inner,
+.ant-checkbox:focus .ant-checkbox-inner {
+  border-color: #fd8205 !important;
+}
+.ant-pagination .ant-pagination-prev button svg,
+.ant-pagination .ant-pagination-next button svg {
+  color: #fd8205;
+  fill: #fd8205;
+}
+.ant-pagination .ant-pagination-item.ant-pagination-item-active {
+  background-color: #fd8205 !important;
+  border-color: #fd8205 !important;
+}
+.ant-pagination .ant-pagination-item.ant-pagination-item-active a {
+  outline: 0 !important;
+  color: var(--Neutral-2, #f4f5f6) !important;
+  border-color: #fd8205 !important;
+}
+@media only screen and (max-width: 768px) {
+  .name-tag {
+    display: flex;
+    width: 83%;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: auto;
+    margin-top: 20px;
+    height: 60px;
+    font-size: 10px;
+  }
+  .Dashboard-title {
+    color: #000;
+    font-family: "General Sans";
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 40px; /* 133.333% */
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .name-tag {
+    display: flex;
+    width: 83%;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: auto;
+    margin-top: 20px;
+    height: 60px;
+    font-size: 18px;
+  }
+  .Dashboard-title {
+    color: #000;
+    font-family: "General Sans";
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 40px; /* 133.333% */
+  }
+}
+@media only screen and (max-width: 1280px) {
+  .name-tag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    height: 40px;
+  }
+}
+.calendar-footer {
+  display: flex;
+  justify-content: space-between;
+}
+.templateFilter-icon {
+  display: flex;
+}
+.all-checkbox {
+  border: none !important;
+  outline: none !important;
+}
+.main-checkbox {
+  border: none !important;
+  outline: none !important;
+}
+.delete-project-modal .ant-modal-footer .ant-btn-primary {
+  background: #ff1818;
+  color: #fff;
+}
+
+.delete-project-modal
+  .ant-btn-primary:not(:disabled):not(.ant-btn-disabled):hover {
+  background: #ff1818 !important;
+}
+
+.delete-project-modal .ant-modal-content .delete-text {
+  display: flex;
+  margin: 0px;
+}
+.preview-link-color {
+  color: #335df3 !important;
+  border-bottom: 1px solid #335df3;
+}
+.preview-link-color:hover {
+  color: #335df3 !important;
+}
+.preview-link-color-table-details {
+  color: #000 !important;
+}
+.preview-link-color-table-details:hover {
+  color: #fd8205 !important;
+}
+
+.expanded-row-table table tr th {
+  background-color: #f4f5f6 !important;
+}
+.ant-table-wrapper::before {
+  display: table;
+  content: none !important;
+}
+.ant-table-wrapper::after {
+  display: table;
+  content: none !important;
+}

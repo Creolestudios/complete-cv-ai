@@ -1,0 +1,44 @@
+.email-success-container {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  justify-content: center;
+  align-items: center;
+}
+.verifyEmail-btn {
+  background-color: #fd8205 !important;
+  color: white !important;
+  border: 0;
+  font-weight: 600 !important;
+  background-color: #e6e8ec;
+  font-size: 16px !important;
+  height: 52px !important;
+  width: 160px !important;
+  border-radius: 4px !important;
+}
+.email-svg {
+  padding-top: 50px;
+}
+.email-success-container h2 {
+  color: var(--Neutral-8, #141416);
+  text-align: center;
+  font-family: "General Sans";
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 600;
+  margin: 0;
+  padding-top: 50px;
+  line-height: 68px; /* 141.667% */
+}
+.verifyEmail-text {
+  color: #777e90 !important;
+  font-size: 16px !important;
+  font-style: normal;
+  font-family: "General Sans";
+  font-weight: 500 !important;
+  line-height: 24px !important;
+  margin: 0 !important;
+}
+.verifyEmail-btn-section {
+  padding-top: 48px;
+}

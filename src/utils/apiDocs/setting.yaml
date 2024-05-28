@@ -1,0 +1,229 @@
+paths:
+  /server/api/settings:
+    put:
+      tags: [Settings]
+      summary: Update User Settings
+      description: Update user settings such as username, email, firstname, lastname, mobile, and role.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                username:
+                  type: string
+                email:
+                  type: string
+                Firstname:
+                  type: string
+                Lastname:
+                  type: string
+                mobile:
+                  type: string
+                Role:
+                  type: string
+              required:
+                - id
+                - username
+                - email
+                - Firstname
+                - Lastname
+                - mobile
+                - Role
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  user:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      username:
+                        type: string
+                      email:
+                        type: string
+                      Firstname:
+                        type: string
+                      Lastname:
+                        type: string
+                      mobile:
+                        type: string
+                      Role:
+                        type: string
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+
+  /server/api/settingList:
+    post:
+      tags: [Settings]
+      summary: Get User Settings
+      description: |
+        Retrieve user settings based on the provided user ID.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                userId:
+                  type: string
+                  description: The ID of the user whose settings to retrieve.
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  user:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      username:
+                        type: string
+                        example: john
+                      email:
+                        type: string
+                        example: 3K9wz@example.com
+                      Firstname:
+                        type: string
+                        example: John
+                      Lastname:
+                        type: string
+                        example: Doe
+                      mobile:
+                        type: string
+                        example: 123-456-7890
+                      Role:
+                        type: string
+                        example: admin
+                      isActive:
+                        type: boolean
+                        example: true
+        "404":
+          description: User Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+  paths:
+  /server/api/passwordChange:
+    put:
+      tags:
+        - Settings
+      summary: Change Password
+      description: Change the password for a user.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: The ID of the user.
+                oldPassword:
+                  type: string
+                  description: The old password of the user.
+                password:
+                  type: string
+                  description: The new password.
+                confirmPassword:
+                  type: string
+                  description: The confirmation of the new password.
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  user:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        description: The ID of the user.
+                      username:
+                        type: string
+                        description: The username of the user.
+                      email:
+                        type: string
+                        description: The email of the user.
+                  status:
+                    type: integer
+                    description: The status code of the response.
+                    example: 200
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string

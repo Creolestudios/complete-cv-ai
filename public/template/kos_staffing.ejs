@@ -1,0 +1,274 @@
+<!-- EJS Template for STAFFING -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style type="text/css">
+      body {
+        width: auto;
+        height: auto;
+        margin: 0;
+        padding: 0;
+        background-color: white;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin: 0;
+      }
+
+      table {
+        border-collapse: separate;
+        margin: 0;
+      }
+      img.header{
+        background-color: white;
+        margin: 0;
+        position: fixed;
+        padding-bottom: 20px;
+      }
+      .footer {
+        margin: 0;
+        position: fixed;
+        bottom: 0;
+        background-color: white;
+        width: 800px;
+      }
+
+    </style>
+  </head>
+  <body bgcolor="#A0A0A0" vlink="blue" link="blue">
+        <img class="header" src="<%= dynamicData.imagePath %>" alt="Header" width="800px"/>
+    <table
+      width="800px"
+      height="100%"
+      border="0"
+      cellpadding="0"
+      cellspacing="0"
+      style="padding-top: 120px;font-family: Arial, Helvetica, sans-serif; ">
+      <tr>
+        <td
+          align="top"
+          width="800px"
+          style="vertical-align: top; background: white; padding: 30px 0px">
+          <table
+          width="100%"
+          border="0"
+          cellpadding="0"
+          cellspacing="0"
+          style="padding: 20px 30px;color: #386292;font-family: Arial, Helvetica, sans-serif;">
+          <% if (dynamicData?.details?.referenceNo !== 'NO field present' && dynamicData?.details?.referenceNo !== '---') { %>
+              <tr>
+                  <td><strong>ReferenceNo:</strong></td>
+                  <td><%= dynamicData?.details?.referenceNo %></td>
+              </tr>
+          <% } else { %>
+              <tr>
+                  <td><strong>ReferenceNo:</strong></td>
+                  <td></td>
+              </tr>
+          <% } %>
+          <tr>
+              <td><strong>Name:</strong></td>
+              <td><%= dynamicData?.details?.name %></td>
+          </tr>
+          <% if (dynamicData?.details?.gender !== 'NO field present' && dynamicData?.details?.gender !== '') { %>
+              <tr>
+                  <td><strong>Gender:</strong></td>
+                  <td><%= dynamicData?.details?.gender %></td>
+              </tr>
+          <% } else { %>
+              <tr>
+                  <td><strong>Gender:</strong></td>
+                  <td></td>
+              </tr>
+          <% } %>
+          <% if (dynamicData?.details?.nationality !== 'NO field present' && dynamicData?.details?.nationality !== '') { %>
+              <tr>
+                  <td><strong>Nationality:</strong></td>
+                  <td><%= dynamicData?.details?.nationality %></td>
+              </tr>
+          <% } else { %>
+              <tr>
+                  <td><strong>Nationality:</strong></td>
+                  <td></td>
+              </tr>
+          <% } %>
+          <% if (dynamicData?.details?.latestSalary !== 'NO field present' && dynamicData?.details?.latestSalary !== '') { %>
+              <tr>
+                  <td><strong>Latest Salary:</strong></td>
+                  <td><%= dynamicData?.details?.latestSalary %></td>
+              </tr>
+          <% } else { %>
+              <tr>
+                  <td><strong>Latest Salary:</strong></td>
+                  <td></td>
+              </tr>
+          <% } %>
+          <% if (dynamicData?.details?.designation !== 'NO field present' && dynamicData?.details?.designation !== '') { %>
+              <tr>
+                  <td><strong>Designation:</strong></td>
+                  <td><%= dynamicData?.details?.designation %></td>
+              </tr>
+          <% } else { %>
+              <tr>
+                  <td><strong>Designation:</strong></td>
+                  <td></td>
+              </tr>
+          <% } %>
+          <% if (dynamicData?.details?.expectedSalary !== 'NO field present' && dynamicData?.details?.expectedSalary !== '') { %>
+              <tr>
+                  <td><strong>Expected Salary:</strong></td>
+                  <td><%= dynamicData?.details?.expectedSalary %></td>
+              </tr>
+          <% } else { %>
+              <tr>
+                  <td><strong>Expected Salary:</strong></td>
+                  <td></td>
+              </tr>
+          <% } %>
+          <% if (dynamicData?.details?.noticePeriod !== 'NO field present' && dynamicData?.details?.noticePeriod !== '') { %>
+              <tr>
+                  <td><strong>Notice Period:</strong></td>
+                  <td><%= dynamicData?.details?.noticePeriod %></td>
+              </tr>
+          <% } else { %>
+              <tr>
+                  <td><strong>Notice Period:</strong></td>
+                  <td></td>
+              </tr>
+          <% } %>
+        </table>
+          <% if (dynamicData && dynamicData.experience && dynamicData.experience.length > 0) { %>
+          <table width="100%" border="0" cellpadding="0" cellspacing="0"style="padding: 0px 30px;">
+            <tr>
+              <td
+                align="center"
+                width="100%"
+                style="background: #56585A; height: 30px; color: white; font-family: Arial, Helvetica, sans-serif;">
+                <strong>Working Experience</strong>
+              </td>
+            </tr>
+          </table>
+          <table width="100%" border="0" cellpadding="0" cellspacing="0" style="font-family: Arial, Helvetica, sans-serif;">
+            
+                <% for (let i = 0; i < dynamicData.experience.length; i++) { %>
+            <tr>
+              <td align="left" style="padding: 10px 40px">
+                <strong><%= dynamicData.experience[i]?.company !== 'NO field present' ? dynamicData.experience[i]?.company : '' %></strong>
+              </td>
+              
+              <td align="right" style="padding: 10px 40px">
+                <strong><%= dynamicData.experience[i]?.date !== 'NO field present' ? dynamicData.experience[i]?.date : '' %></strong>
+              </td>
+            </tr>
+            <td align="left" style="padding: 0px 40px; height: 50%">
+              <strong><%= dynamicData.experience[i]?.title !== 'NO field present' ? dynamicData.experience[i]?.title : '' %></strong>
+            </td>
+            <tr>
+
+            </tr>
+            <tr>
+              <td colspan="2" align="left" style="padding: 8px 40px; text-align: justify; color: black">
+                <% if (dynamicData?.experience[i]?.description !== 'NO field present') { %>
+                  <ul style="padding-left: 15px;">
+                    <% dynamicData.experience[i].description.split(';').forEach(function (line) { %>
+                      <% var lines = line.trim().split('\n'); %>
+                      <% if (lines.length > 1) { %>
+                        <% lines.forEach(function (line, index) { %>
+                          <% if (index === 0) { %>
+                            <li style="padding-bottom: 5px;"><%= line.trim() %></li>
+                          <% } else { %>
+                            <li style="padding-bottom: 5px; list-style-type: disc;"><%= line.trim() %></li>
+                          <% } %>
+                        <% }); %>
+                      <% } else { %>
+                        <li style="padding-bottom: 5px;"><%= line.trim() %></li>
+                      <% } %>
+                    <% }); %>
+                  </ul>
+                <% } %>
+              </td>
+            </tr>  
+            <% } %>
+          </table>
+          <% } %>
+          
+          <% if (dynamicData && dynamicData.education && dynamicData.education.length > 0) { %>
+          <table width="100%" border="0" cellpadding="0" cellspacing="0"style="padding: 0px 30px;">
+            <tr>
+              <td
+                align="center"
+                width="100%"
+                style="background: #56585A; height: 30px; color: white; font-family: Arial, Helvetica, sans-serif;">
+                <strong>Education</strong>
+              </td>
+            </tr>
+          </table>
+          <table width="100%" border="0" cellpadding="0" cellspacing="0" style="font-family: Arial, Helvetica, sans-serif;">
+            
+                <% for (let i = 0; i < dynamicData.education.length; i++) { %>
+            <tr>
+              <td align="left"style="padding: 0px 40px">
+                <strong><%= dynamicData.education[i]?.college !== 'NO field present' ? dynamicData.education[i]?.college : '' %></strong>
+              </td>
+              <td align="right" style="padding: 5px 40px">
+                <strong><%= dynamicData.education[i]?.date !== 'NO field present' ? dynamicData.education[i]?.date : '' %></strong>
+              </td>
+            </tr>
+            <tr>
+              <td align="left" style="padding: 5px 40px;color: black">
+                <%= dynamicData.education[i]?.title !== 'NO field present' ? dynamicData.education[i]?.title : '' %>
+              </td>
+            </tr>
+            <% } %>
+          </table>
+          <% } %>
+          <table width="100%" border="0" cellpadding="0" cellspacing="0"style="padding: 0px 30px;">
+            <tr>
+              <td
+                align="center"
+                width="100%"
+                style="background: #56585A; height: 30px; color: white; font-family: Arial, Helvetica, sans-serif;">
+                <strong>Skills</strong>
+              </td>
+            </tr>
+          </table>
+          <table width="100%" border="0" cellpadding="0" cellspacing="0"style="padding: 0px 40px;font-family: Arial, Helvetica, sans-serif;">
+              <!-- <tr>
+                <td> <ul>
+                  <% for (let i = 0; i < Math.min(10, dynamicData.skills.length); i++) { %>
+                      <li><%= dynamicData.skills[i] %></li>
+                  <% } %>
+              </ul></td>
+              </tr> -->
+              <tr>
+                <td>
+                  <ul>
+                    <% if (dynamicData && dynamicData.skills && dynamicData.skills.length) { %>
+                      <% for (let i = 0; i < Math.min(10, dynamicData.skills.length); i++) { %>
+                        <li><%= dynamicData.skills[i] %></li>
+                      <% } %>
+                    <% } else { %>
+                      <li>No skills available</li>
+                    <% } %>
+                  </ul>
+                </td>
+              </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <!-- <div style="margin-top: 10px;"class='footer'>
+      <p style="padding: 0px 40px 10px; text-align: justify; font-size:12px; border-bottom: 1px solid rgb(66, 221, 52);">This candidate has given express authority to be solely represented by  International. Written or verbal instructions to  International by the client to supply candidates will be deemed as acceptance by the client of  International’s Terms and Conditions.</p>
+      <p style="padding: 0px 40px;color: #4d4c4c;margin: 0px;font-size: 12px;"> Suite 610, 6/F, Ocean Centre, 5 Canton Road, Tsim Sha Tsui, Kowloon, Hong Kong \ T +852 3180 4988</p>
+      <p style="padding: 5px 40px;color: rgb(66, 221, 52);margin: 0px;font-size: 12px;">www.-intl.com</p>
+      </div> -->
+  </body>
+</html>

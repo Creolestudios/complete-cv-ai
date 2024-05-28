@@ -1,0 +1,300 @@
+paths:
+  /server/api/adminDashTableList:
+    get:
+      tags:
+        - Admin Dashboard
+      summary: Get User Information for Super Admin Dashboard
+      description: Retrieves user information for the super admin dashboard
+      security:
+        - bearerAuth:
+          type: http
+          scheme: bearer
+          bearerFormat: JWT
+          description: The JWT token is required for this API.
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  formattedUserList:
+                    type: array
+                    description: List of users formatted for the super admin dashboard.
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          description: The ID of the user.
+                        name:
+                          type: string
+                          description: The username of the user.
+                        role:
+                          type: string
+                          description: The role of the user.
+                        teamName:
+                          type: string
+                          description: The name of the team the user belongs to, or "#Individual user" if the user does not belong to a team.
+                        cvConverted:
+                          type: integer
+                          description: The count of CVs converted by the user.
+                        timeSpent:
+                          type: string
+                          description: The formatted time spent by the user.
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message indicating an internal server error.
+        "401":
+          description: Unauthorized to perform this action
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: The error message.
+  /server/api/adminLineGraph:
+    get:
+      tags:
+        - Admin Dashboard
+      summary: Get Line Graph Data
+      description: Retrieves line graph data for displaying daily conversion counts for each team
+      security:
+        - bearerAuth:
+          type: http
+          scheme: bearer
+          bearerFormat: JWT
+          description: The JWT token is required for this API.
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  teamCombinedDailyConversions:
+                    type: array
+                    description: List of combined daily conversion counts for each team.
+                    items:
+                      type: object
+                      properties:
+                        teamName:
+                          type: string
+                          description: The name of the team.
+                        cvConverted:
+                          type: array
+                          description: List of daily conversion counts for the team.
+                          items:
+                            type: integer
+                            description: Daily conversion count.
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message indicating an internal server error.
+        "401":
+          description: Unauthorized to perform this action
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: The error message.
+  /server/api/adminTemplateData:
+    get:
+      tags:
+        - Admin Dashboard
+      summary: Get Template Usage Count for Bar data
+      description: Retrieves the usage count for each template
+      security:
+        - bearerAuth:
+          type: http
+          scheme: bearer
+          bearerFormat: JWT
+          description: The JWT token is required for this API.
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  templateUsageObject:
+                    type: object
+                    description: Object containing template usage counts.
+                    additionalProperties:
+                      type: integer
+                      description: Usage count for the template.
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message indicating an internal server error.
+        "401":
+          description: Unauthorized to perform this action
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: The error message.
+
+  /server/api/adminTemplateDataDatewise:
+    post:
+      tags:
+        - Admin Dashboard
+      summary: Get Template Usage Count
+      description: Retrieves the usage count for each template based on time periods
+      security:
+        - bearerAuth:
+          type: http
+          scheme: bearer
+          bearerFormat: JWT
+          description: The JWT token is required for this API.
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                timePeriod:
+                  type: string
+                  enum: [daily, weekly, monthly, all]
+                  description: The time period for which to retrieve template usage counts
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  templateUsageObject:
+                    type: object
+                    description: Object containing template usage counts.
+                    additionalProperties:
+                      type: integer
+                      description: Usage count for the template.
+        "404":
+          description: Invalid Time Period
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Error message indicating an invalid time period.
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message indicating an internal server error.
+        "401":
+          description: Unauthorized to perform this action
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: The error message.
+  /server/api/timespend:
+    post:
+      tags:
+        - Time Tracking
+      summary: Update User Time Spent
+      description: Updates the time spent for a user
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                userId:
+                  type: string
+                  description: The ID of the user whose time is being updated
+                time:
+                  type: string
+                  description: The amount of time to add to the user's existing time (in milliseconds)
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    description: Indicates whether the operation was successful
+                  newTime:
+                    type: integer
+                    description: The updated time spent value for the user
+                  existingTime:
+                    type: integer
+                    description: The previous time spent value for the user
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Error message indicating missing or invalid parameters
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Error message indicating that the user record was not found
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message indicating an internal server error

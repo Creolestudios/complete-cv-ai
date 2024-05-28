@@ -1,0 +1,372 @@
+.name-tag {
+  display: flex;
+  width: 83%;
+  justify-content: space-between;
+  flex-direction: row;
+  margin: auto;
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.Dashboard-title {
+  color: #000;
+  font-family: "General Sans";
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 40px; /* 133.333% */
+}
+.dashboard-top {
+  display: flex;
+  width: 64%;
+  justify-content: flex-end;
+  align-self: flex-start;
+}
+.dashboard-top .ant-input {
+  max-width: 370px;
+}
+.dashboard-top .date-btn-wrapper {
+  color: #000 !important;
+  background-color: #f4f5f6 !important;
+  min-width: 164px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  box-shadow: none;
+}
+.dashboard-top .date-btn-wrapper .download-btn {
+  min-width: 100px;
+}
+.dashboard-top .date-btn-wrapper .calendar-text {
+  font-weight: 500;
+  line-height: 24px;
+  text-transform: capitalize;
+}
+.dashboard-top .date-btn-wrapper .calendar-text.download {
+  width: 100%;
+  font-weight: 600;
+}
+.dashboard-top .date-btn-wrapper .calendar-icon {
+  margin-right: 8px;
+}
+.calendar-text {
+  color: var(--Neutral-1, #141416);
+  text-align: center;
+  font-family: "General Sans";
+  font-size: 16px !important;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px; /* 175% */
+}
+@media only screen and (max-width: 768px) {
+  .name-tag {
+    width: 80%;
+    height: 40px;
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .name-tag {
+    width: 20%;
+    height: 40px;
+  }
+}
+@media only screen and (max-width: 1280px) {
+  .name-tag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    height: 40px;
+  }
+}
+.calendar-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.admin-teams-dropdown {
+  margin-left: 20px;
+  height: 44px;
+}
+
+.admin-teams-dropdown .admin-dropdown {
+  display: flex;
+  width: 164px;
+  padding: 10px;
+  align-items: flex-start;
+  gap: 12px;
+  background-color: #f4f5f6 !important;
+  border-radius: 6px;
+  box-shadow: none;
+}
+
+.admin-dashboard {
+  display: flex;
+  width: 83%;
+  flex-direction: row;
+  margin: auto;
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.admin-dashboard .admin-analysis-header {
+  width: 100%;
+  display: flex;
+}
+
+.admin-dashboard .admin-analysis-header .left {
+  border-radius: 4px;
+  background-color: #fd8205;
+  padding: 24px 0 0 24px;
+  width: 370px;
+  margin-right: 40px;
+}
+
+.admin-dashboard .admin-analysis-header .right {
+  border: 1px solid #e6e8ec;
+  border-radius: 4px;
+  flex: 1;
+}
+.admin-analysis-header .left .performance-text {
+  color: #fcfcfd;
+  font-family: "General Sans";
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px; /* 140% */
+  margin-bottom: 15px;
+}
+
+.admin-analysis-header .left .performance-rating {
+  display: flex;
+  align-items: center;
+}
+
+.admin-analysis-header .left .performance-rating .performance-percentage {
+  color: #fff;
+  text-align: center;
+  font-family: "General Sans";
+  font-size: 128px;
+  font-weight: 600;
+  min-height: 159px;
+  margin: 0;
+}
+
+.performance-rating .per-sign {
+  color: #fff;
+  text-align: center;
+  font-family: "General Sans";
+  font-size: 30px;
+  margin-top: 0;
+}
+
+.left .performance-rating .performance-text {
+  color: #fff;
+  /* Subtitle/Large */
+  font-family: "General Sans";
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px; /* 140% */
+}
+
+.admin-dashboard .admin-analysis-header .right .performance-chart {
+  padding: 24px;
+}
+
+.chart-section {
+  display: flex;
+  width: 83%;
+  flex-direction: row;
+  margin: auto;
+  margin-top: 40px;
+  font-size: 18px;
+}
+
+.chart-section .chart-section-row {
+  width: 100%;
+}
+
+.chart-section .chart-section-row .bar-charts {
+  border: 1px solid #e6e8ec;
+  border-radius: 4px;
+  padding: 24px;
+}
+
+.chart-section-row .chart-card {
+  margin-right: 40px;
+  flex: 0 0 calc(50% - 20px);
+  max-width: calc(50% - 20px);
+}
+
+.chart-section-row .chart-card:last-child {
+  margin-right: 0px;
+}
+
+.member-activity {
+  display: flex;
+  width: 83%;
+  justify-content: space-between;
+  flex-direction: row;
+  margin: auto;
+  margin-top: 46px;
+  font-size: 18px;
+}
+
+.member-activity .member-activity-title {
+  color: var(--Neutral-8, #141416);
+  font-family: "General Sans";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+.member-activity .export-csv-btn {
+  color: var(--Neutral-1, #fcfcfd);
+  text-align: center;
+  font-family: "General Sans";
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 4px;
+  background: var(--secondary-7, #fd8205);
+  gap: 10px;
+  height: 44px;
+}
+
+.dashboard-table {
+  width: 83%;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.ant-pagination .ant-pagination-prev button svg,
+.ant-pagination .ant-pagination-next button svg {
+  color: #fd8205;
+  fill: #fd8205;
+}
+.ant-pagination .ant-pagination-item.ant-pagination-item-active {
+  background-color: #fd8205 !important;
+  border-color: #fd8205 !important;
+}
+.ant-pagination .ant-pagination-item.ant-pagination-item-active a {
+  outline: 0 !important;
+  color: var(--Neutral-2, #f4f5f6) !important;
+  border-color: #fd8205 !important;
+}
+
+.dashtable-pagination .ant-pagination .ant-pagination-item {
+  border-radius: 8px;
+  background-color: #f4f5f6 !important;
+}
+.dashtable-pagination .ant-pagination li button {
+  border-radius: 8px !important;
+  box-shadow: none !important;
+}
+.dashtable-pagination .ant-pagination li,
+.dashtable-pagination .ant-pagination li * {
+  cursor: pointer !important;
+}
+.dashtable-pagination .ant-pagination li.ant-pagination-prev button {
+  background: url(../../../public/assets/dashboard/left.svg) no-repeat;
+  background-position: center;
+}
+.dashtable-pagination .ant-pagination li.ant-pagination-next button {
+  background: url(../../../public/assets/dashboard/right.svg) no-repeat;
+  background-position: center;
+}
+.dashtable-pagination .ant-pagination li button span {
+  display: none;
+}
+.dashtable-pagination .ant-pagination .ant-pagination-item a {
+  font-size: 16px;
+  color: var(--Neutral-900, #34404b) !important;
+  padding: 0;
+  border: none;
+  border-radius: 8px;
+  min-width: 30px;
+  width: 30px !important;
+  height: 30px;
+  box-shadow: none !important;
+}
+.ant-pagination-item-link {
+  border-radius: 8px;
+
+  background-color: #f4f5f6 !important;
+}
+.dashboard-table {
+  width: 83%;
+  margin: 20px auto;
+  max-height: auto;
+  min-height: auto;
+  border-radius: 4px;
+  border: 1px solid var(--Neutral-3, #e6e8ec);
+}
+.ant-table-wrapper table tr:hover td {
+  background: #f4f5f6 !important;
+}
+.ant-table-wrapper table tr:hover td:first-child {
+  border-radius: 4px 0 0 4px;
+}
+.ant-table-wrapper table tr:hover td:last-child {
+  border-radius: 0 4px 4px 0;
+}
+.ant-table-wrapper table tr td,
+.ant-table-wrapper table tr th {
+  border-bottom: 0 !important;
+  background: transparent !important;
+}
+.ant-table-wrapper .ant-table-content {
+  padding: 0 12px 0;
+}
+.ant-table-wrapper .ant-table-content table {
+  border-spacing: 0 12px;
+}
+.dashboard-table table tr th,
+.dashboard-table table tr td {
+  font-weight: 500 !important;
+  line-height: 24px;
+}
+.dashboard-table table tr th {
+  font-size: 16px;
+  text-align: left;
+  color: #777e90 !important;
+  font-family: "General Sans";
+  background-color: white;
+  padding: 8px 12px !important;
+}
+.dashboard-table table tr td {
+  text-align: left;
+  font-size: 16px;
+  font-family: "General Sans";
+  padding: 7px 12px !important;
+  color: var(--Neutral-8, #141416);
+}
+.dashboard-table table tr th.templateName {
+  display: flex;
+  justify-content: left;
+}
+.dashboard-table table tr th.actions,
+.dashboard-table table tr td.actions {
+  width: 100px;
+}
+
+.dashboard-table table tr th::before {
+  display: none;
+}
+
+.dashtable-pagination {
+  width: 100%;
+  color: orange !important;
+  margin: 10px auto 20px;
+  display: inline-block;
+}
+.dashtable-pagination .ant-pagination {
+  width: 83%;
+  margin: 0 auto;
+}
+.dashtable-pagination .ant-pagination li {
+  min-width: 30px;
+  width: 30px !important;
+  height: 30px;
+  border-radius: 8px;
+}

@@ -1,0 +1,61 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRES_PRISMA_URL")
+  directUrl = env("POSTGRES_URL_NON_POOLING")
+}
+model User {
+  id       Int     @id @default(autoincrement())
+  email    String  @unique
+  username String @unique
+  password String
+  dashTable DashTable[]
+  Firstname String
+  Lastname  String
+  mobile    String
+  Role      String
+  isActive  Boolean @default(true)
+  timeSpend    String?
+  verified   Boolean?
+  team       Team[] 
+}
+model DashTable {
+  id           Int      @id @default(autoincrement())
+  ProjectName  String
+  LastSaved    DateTime
+  userId       Int      // Foreign key referencing User.id  
+  user         User     @relation(fields: [userId], references: [id])
+  teamId       Int?     // Optional foreign key referencing Team.id
+  team         Team?    @relation(fields: [teamId], references: [id])
+  files        File[]
+  zipURL       String?
+  timeSpend    String?
+}
+model Team {
+  id          Int     @id @default(autoincrement())
+  teamName    String
+  description String
+  status      String
+  members     User[]  // Users who are members of this team
+  dashTables  DashTable[] 
+  activeSince   DateTime
+  isActive    Boolean @default(true)
+}
+model File {
+  id                Int      @id @default(autoincrement())
+  file_id           String
+  candidateFile_name String
+  user_url          String
+  _url           String
+  zipUrl            String
+  lastsaved         DateTime
+  templateId        String   // Assuming templateId is a string
+  dashTableId       Int      // Foreign key referencing DashTable.id
+  dashTable         DashTable @relation(fields: [dashTableId], references: [id])
+}

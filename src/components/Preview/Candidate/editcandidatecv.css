@@ -1,0 +1,274 @@
+.form-main {
+  max-width: 790px;
+  width: 100%;
+}
+
+.form-main .ant-input-affix-wrapper {
+  max-width: 100%;
+}
+
+.w-50 {
+  width: calc(50% - 6px);
+  margin-right: 12px;
+  margin-bottom: 12px;
+}
+
+.remove-mr {
+  margin-right: 0;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.ant-form .ant-form-item .add-custom-fields-btn {
+  display: flex;
+  padding: 4px 0px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 4px;
+  border: 1px solid var(--secondary-7, #fd8205);
+  color: var(--secondary-7, #fd8205);
+
+  /* Body/Small */
+  font-family: "General Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 171.429% */
+  width: 100%;
+}
+
+.ant-form .ant-form-item .add-custom-fields-btn .plus-icon {
+  display: flex;
+  align-items: center;
+}
+
+.ant-form .ant-form-item .add-custom-fields-btn:hover {
+  border-color: #fd8205 !important;
+  font-weight: 500 !important;
+}
+
+.ant-form .ant-form-item button:hover {
+  background: #fff !important;
+  color: #fd8205 !important;
+}
+.ant-form .ant-form-item button span {
+  cursor: pointer !important;
+}
+
+.edit-cv {
+  overflow-y: scroll;
+  height: 750px;
+}
+
+.ant-form .ant-form-item .ant-form-item-row .ant-form-item-label label {
+  color: var(--Neutral-5, #777e90);
+  text-align: center;
+
+  /* Body/Small */
+  font-family: "General Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 171.429% */
+}
+.edit-cv .add-custom-fields-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ant-form
+  .ant-form-item
+  .ant-form-item-row
+  .ant-form-item-control
+  .ant-form-item-control-input
+  .ant-input {
+  height: 40px;
+  border-radius: 4px;
+  padding: 12px 16px;
+  border: 1px solid #e6e8ec;
+  background: #fff;
+  font-family: "General Sans";
+  font-size: 16px;
+  font-weight: 500;
+  color: #141416;
+}
+
+.remove-mr {
+  margin-right: 0 !important;
+}
+
+.form-main .ant-spin svg {
+  color: #fff;
+}
+
+.form-main .ant-btn:hover svg {
+  color: #fd8205;
+}
+.form-main .ant-btn .ant-spin {
+  margin-left: 10px;
+}
+
+.executive-summary-section {
+  margin-top: 12px;
+  border: 1px solid #e6e8ec;
+  border-radius: 4px;
+  padding: 12px;
+}
+
+.working-experience-section {
+  border-radius: 4px;
+  border: 1px solid var(--Neutral-3, #e6e8ec);
+  padding: 12px;
+  margin-top: 12px;
+}
+
+.working-experience-form {
+  margin-bottom: 12px;
+  border-radius: 4px;
+}
+
+.working-experience-form .end-date-checkbox {
+  height: 32px;
+  color: var(--Neutral-5, #777e90);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.working-experience-form .end-date-checkbox .present {
+  display: flex;
+  align-items: center;
+}
+
+.working-experience-form .end-date-checkbox .present .ant-checkbox-wrapper {
+  color: var(--Neutral-5, #777e90);
+  margin-left: 5px;
+}
+
+.working-experience-form
+  .end-date-checkbox
+  .present
+  .ant-checkbox-wrapper
+  .ant-checkbox-inner {
+  border-color: #353945;
+  border-radius: 0px;
+}
+
+.working-experience-form .working-ex-tag {
+  color: var(--Neutral-8, #141416);
+
+  /* Body/Small */
+  font-family: "General Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 171.429% */
+  background-color: #f4f5f6;
+  padding: 8px;
+  border-radius: 4px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.add-working-ex-btn {
+  width: 100%;
+  margin-top: 12px;
+}
+
+.working-ex-btn {
+  width: 100%;
+  color: #fd8205 !important;
+  background-color: #fff !important;
+  border-color: #fd8205 !important;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 4px;
+  font-family: "General Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.working-ex-btn:hover {
+  color: #fd8205 !important;
+  border-color: #fd8205 !important;
+  font-weight: 500 !important;
+}
+
+.working-ex-tag .working-ex-tag-delete {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 30px;
+}
+
+.working-ex-tag .working-ex-tag-delete .delete-icon {
+  height: 30px;
+}
+
+.edit-cv-form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.edit-cv-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.undo-redo-save-grp {
+  display: flex;
+}
+
+.edit-cv-main .undo-redo-btn {
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+}
+
+.edit-cv-main .undo-redo-btn:last-child {
+  margin-right: 0;
+}
+
+.edit-cv-main .save-cv-edit-btn {
+  display: inline-flex;
+  padding: 4px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 4px;
+  background: var(--secondary-7, #fd8205);
+
+  color: var(--Neutral-1, #fcfcfd);
+  text-align: center;
+  font-family: "General Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px; /* 150% */
+}
+
+.edit-cv-main .undo-redo-btn:hover {
+  border-color: #d9d9d9 !important;
+  background-color: #fff !important;
+}
+
+.edit-cv-main .save-cv-edit-btn:hover {
+  color: #fd8205 !important;
+  border-color: #fd8205 !important;
+}
+.tox .tox-statusbar {
+  display: none !important;
+}
+.edit-cv-textarea {
+  height: 200px !important;
+  resize: none !important;
+}

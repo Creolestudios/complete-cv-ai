@@ -1,0 +1,465 @@
+.dashboard-top {
+  width: 60%;
+  display: flex;
+  justify-content: flex-end;
+  align-self: flex-start;
+  margin-left: auto;
+  position: absolute;
+  top: -40px;
+  right: 0;
+}
+.dashboard-top .date-btn-wrapper {
+  color: #000 !important;
+  background-color: #f4f5f6 !important;
+  min-width: 164px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  margin-right: 20px;
+  box-shadow: none;
+}
+.dashboard-top .date-btn-wrapper .download-btn {
+  min-width: 100px;
+}
+.ant-upload button {
+  border-radius: 4px;
+  box-shadow: none;
+}
+.ant-upload button,
+.ant-upload button * {
+  cursor: pointer !important;
+}
+.dashboard-top .date-btn-wrapper .calendar-text {
+  font-weight: 500;
+  line-height: 24px;
+  text-transform: capitalize;
+}
+.dashboard-top .date-btn-wrapper .calendar-text.download {
+  width: 100%;
+  font-weight: 600;
+}
+.dashboard-top .date-btn-wrapper .calendar-icon {
+  margin-right: 8px;
+}
+
+.search-bar {
+  background: #f4f5f6 url("../../../public/assets/dashboard/Group.svg")
+    no-repeat !important;
+  background-position: center left 8px !important;
+  padding-left: 40px !important;
+  border: none !important;
+  height: 44px;
+  max-width: 370px;
+  width: 100%;
+  border-radius: 4px !important;
+  font-family: "General Sans" !important;
+  font-size: 16px !important;
+  font-style: normal;
+  font-weight: 500 !important;
+  line-height: 24px;
+  color: #000;
+  margin-right: 20px !important;
+}
+.search-bar::placeholder {
+  color: var(--Neutral-4, #b1b5c3) !important;
+  font-weight: 500 !important;
+}
+
+.ant-btn {
+  cursor: pointer !important;
+  font-family: "General Sans" !important;
+  height: 44px !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  color: #fff !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  border-radius: 4px !important;
+  background: #fd8205 !important;
+  border: 1px solid #fd8205 !important;
+}
+.ant-btn span {
+  cursor: pointer !important;
+  color: #fff;
+}
+
+/* setting table start */
+.setting-table-wrapper,
+.team-detail-wrapper {
+  padding-top: 40px;
+}
+
+.setting-table-wrapper .ant-table-content,
+.team-detail-wrapper .ant-table-content {
+  padding: 0 !important;
+}
+.setting-table-wrapper .ant-table-content table,
+.team-detail-wrapper .ant-table-content table {
+  border-spacing: 0 !important;
+}
+.setting-table-wrapper .ant-table-content table tr th,
+.team-detail-wrapper .ant-table-content table tr th {
+  font-family: "General Sans";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #777e90;
+  padding: 8px 16px;
+}
+.setting-table-wrapper .ant-table-content table tr th::before,
+.team-detail-wrapper .ant-table-content table tr th::before {
+  display: none;
+}
+.setting-table-wrapper .ant-table-content table tr th .ant-table-filter-column,
+.team-detail-wrapper .ant-table-content table tr th .ant-table-filter-column {
+  justify-content: flex-start;
+}
+.setting-table-wrapper
+  .ant-table-content
+  table
+  tr
+  th
+  .ant-table-filter-column
+  .ant-table-column-title,
+.team-detail-wrapper
+  .ant-table-content
+  table
+  tr
+  th
+  .ant-table-filter-column
+  .ant-table-column-title {
+  display: contents;
+}
+.setting-table-wrapper .ant-table-content table tr td,
+.team-detail-wrapper .ant-table-content table tr td {
+  font-family: "General Sans";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #000;
+  border-bottom: 2px solid #e6e8ec !important;
+  padding: 16px;
+  text-transform: capitalize;
+}
+.team-detail-wrapper .ant-table-content table tr td svg,
+.team-detail-wrapper .ant-table-content table tr td svg * {
+  cursor: pointer !important;
+}
+.setting-table-wrapper .ant-table-content table tr td a,
+.setting-table-wrapper .ant-table-content table tr td a *,
+.team-detail-wrapper .ant-table-content table tr td a,
+.setting-table-wrapper .ant-table-content table tr td a * {
+  cursor: pointer !important;
+}
+.setting-table-wrapper
+  .ant-table-content
+  table
+  tr:hover
+  td
+  .preview-link-colors
+  span,
+.team-detail-wrapper
+  .ant-table-content
+  table
+  tr:hover
+  td
+  .preview-link-colors
+  span {
+  color: #fd8205 !important;
+}
+.setting-table-wrapper .ant-table-content table tr:last-child td,
+.team-detail-wrapper .ant-table-content table tr:last-child td {
+  border-bottom: 0 !important;
+}
+/* setting table end */
+
+.create-team-wrapper .ant-form {
+  display: unset;
+  margin: 0 !important;
+}
+.create-team-wrapper .ant-form .ant-form-item {
+  width: 50%;
+  padding: 0 20px;
+  margin-bottom: 16px;
+}
+
+.create-team-wrapper
+  .ant-form
+  .ant-form-item
+  .ant-form-item-row
+  .ant-form-item-label {
+  width: 100%;
+  text-align: start;
+  padding-bottom: 8px;
+}
+.create-team-wrapper
+  .ant-form
+  .ant-form-item
+  .ant-form-item-row
+  .ant-form-item-label
+  label {
+  height: auto;
+  font-family: "General Sans";
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  color: #353945;
+}
+.create-team-wrapper
+  .ant-form
+  .ant-form-item
+  .ant-form-item-row
+  .ant-form-item-label
+  label::after {
+  display: none;
+}
+
+.create-team-wrapper
+  .ant-form
+  .ant-form-item
+  .ant-form-item-row
+  .ant-form-item-control {
+  width: 100%;
+  flex: none;
+}
+
+.create-team-wrapper .create-team-header {
+  /* width: 100%; */
+  margin: 0 -20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.edit-team-member .footer-form {
+  position: unset !important;
+  padding: 0 !important;
+}
+
+.create-team-wrapper.edit-team-member .footer-form {
+  padding: 0 !important;
+  margin: 0;
+}
+.create-team-wrapper .footer-form {
+  width: 100% !important;
+  margin-top: 20px;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+  position: absolute;
+  bottom: 0;
+  width: 100% !important;
+  left: 0;
+  padding: 0 24px 24px !important;
+}
+.create-team-wrapper .footer-form .ant-form-item-row,
+.create-team-wrapper .footer-form .ant-form-item-control {
+  width: 100%;
+}
+
+.create-team-wrapper .footer-form .ant-form-item-row,
+.create-team-wrapper
+  .footer-form
+  .ant-form-item-control
+  .ant-form-item-control-input-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.create-team-wrapper .footer-form .ant-checkbox-wrapper {
+  display: flex;
+  align-items: center;
+}
+.create-team-wrapper .footer-form .ant-checkbox-wrapper * {
+  cursor: pointer !important;
+}
+.create-team-wrapper .footer-form .ant-checkbox-wrapper .ant-checkbox + span {
+  font-family: "General Sans";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #141416;
+}
+
+.create-team-wrapper .footer-form .btn-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+.create-team-wrapper .footer-form .btn-wrapper .ant-btn {
+  margin-top: 0;
+  margin-right: 15px;
+}
+
+.create-team-wrapper .footer-form .btn-wrapper .ant-btn span {
+  font-family: "General Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  color: #fff;
+  /* color: #141416; */
+}
+
+.create-team-wrapper .footer-form .btn-wrapper .ant-btn:hover span {
+  color: #fd8205;
+}
+
+.create-team-wrapper .footer-form .btn-wrapper .ant-btn.cancel {
+  background: #e6e8ec !important;
+  border-color: #e6e8ec !important;
+}
+.create-team-wrapper .footer-form .btn-wrapper .ant-btn.cancel span {
+  color: #141416 !important;
+}
+.create-team-wrapper .footer-form .btn-wrapper .ant-btn.cancel:hover {
+  background: #fff !important;
+}
+
+.create-team-wrapper .add-member {
+  width: fit-content;
+  font-family: "General Sans";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #fd8205;
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  cursor: pointer !important;
+}
+.create-team-wrapper .add-member * {
+  cursor: pointer !important;
+}
+
+.create-team-wrapper .footer-form .btn-wrapper .ant-btn:last-child {
+  margin-right: 0;
+}
+
+.edit-team-member .invite-member {
+  height: auto;
+  overflow: unset;
+}
+
+.invite-member {
+  width: 100%;
+  margin-top: 8px;
+  overflow: auto;
+  height: calc(100vh - 305px);
+}
+.invite-member::-webkit-scrollbar {
+  width: 3px;
+}
+.invite-member::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+.invite-member .title {
+  font-family: "General Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  color: #777e90;
+  margin-bottom: 12px;
+  text-transform: capitalize;
+}
+.team-member {
+  padding: 16px 16px 0;
+  border-radius: 4px;
+  border: 1px solid #e6e8ec;
+  margin-bottom: 15px;
+}
+.edit-team-member .team-member {
+  border: 0;
+  padding: 0;
+}
+.team-member .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.team-member .header span {
+  font-family: "General Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  color: #141416;
+}
+.team-member .header svg,
+.invite-member .team-member .header svg * {
+  cursor: pointer !important;
+}
+.invite-member .member-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -10px !important;
+}
+
+.invite-member .member-wrapper .ant-form-item {
+  padding: 0 10px;
+}
+.edit-team-member .team-member {
+  margin-bottom: 0;
+}
+
+.edit-team-member .team-member .member-wrapper {
+  margin: 0 -20px !important;
+}
+
+.edit-team-member .member-wrapper .ant-form-item {
+  padding: 0 20px !important;
+  margin-bottom: 40px !important;
+}
+
+.invite-member .member-wrapper .country-code .arrow {
+  margin-top: -2px !important;
+}
+
+/* team-detail-wrapper */
+.team-detail-wrapper {
+  width: 80%;
+  justify-content: space-between;
+  flex-direction: row;
+  margin: auto;
+  font-family: "General Sans";
+}
+
+.breadcrum-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.breadcrum-header .btn-wapper {
+  display: flex;
+  align-items: center;
+}
+.breadcrum-header .breadcrumb {
+  display: flex;
+  align-items: center;
+}
+.breadcrum-header .breadcrumb a {
+  display: flex;
+  cursor: pointer !important;
+}
+.breadcrum-header .breadcrumb a * {
+  cursor: pointer !important;
+}
+.breadcrum-header .breadcrumb .title {
+  font-family: "General Sans";
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 40px;
+  color: #141416;
+  text-transform: capitalize;
+}
+
+.breadcrum-header .btn-wapper .ant-btn {
+  margin-right: 15px;
+}
+.breadcrum-header .btn-wapper .ant-btn:last-child {
+  margin-right: 0;
+}

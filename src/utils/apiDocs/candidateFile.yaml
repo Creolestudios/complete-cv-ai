@@ -1,0 +1,96 @@
+paths:
+  /server/api/candidateCv:
+    post:
+      tags: [Preview]
+      summary: Get Candidate PDF URL
+      description: Retrieve the candidate URL of a PDF file from Vercel Blob.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: string
+                file_id:
+                  type: string
+              required:
+                - user_id
+                - file_id
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: object
+                    description: Information about the PDF URL.
+                    properties:
+                      url:
+                        type: string
+                        format: uri
+                      name:
+                        type: string
+                      contentType:
+                        type: string
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorMessage:
+                    type: string
+
+  /server/api/pdf:
+    post:
+      tags: [Preview]
+      summary: Get Converted  PDF URL
+      description: Retrieve the converted URL of a PDF file from Vercel Blob.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: string
+                file_id:
+                  type: string
+              required:
+                - user_id
+                - file_id
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: object
+                    description: Information about the PDF URL.
+                    properties:
+                      url:
+                        type: string
+                        format: uri
+                      name:
+                        type: string
+                      contentType:
+                        type: string
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorMessage:
+                    type: string

@@ -1,0 +1,258 @@
+paths:
+  /server/api/upload:
+    post:
+      summary: Upload and process CV file
+      tags:
+        - Upload & Convert
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                cardId:
+                  type: string
+                user_id:
+                  type: string
+                required:
+                  - file
+                  - user_id
+                  - cardId
+      responses:
+        "200":
+          description: Successful upload
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  file_id:
+                    type: string
+                  tempFileName:
+                    type: string
+                  file_name:
+                    type: string
+                  isProgress:
+                    type: boolean
+                  message:
+                    type: string
+        "404":
+          description: File not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorMessage:
+                    type: string
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorMessage:
+                    type: string
+
+  /server/api/resumeDataEdit:
+    post:
+      tags: [Upload & Convert]
+      summary: Store Edited Resume Data
+      description: |
+        Store edited resume data in Vercel Blob storage.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: string
+                  description: The ID of the user.
+                file_id:
+                  type: string
+                  description: The ID of the file.
+                FileData:
+                  type: object
+                  properties:
+                    details:
+                      type: object
+                      description: Details information of the resume.
+                    skills:
+                      type: object
+                      description: Skills information of the resume.
+                    experience:
+                      type: object
+                      description: Experience information of the resume.
+                    languages:
+                      type: object
+                      description: Languages information of the resume.
+                    education:
+                      type: object
+                      description: Education information of the resume.
+                    projects:
+                      type: object
+                      description: Projects information of the resume.
+                    summary:
+                      type: object
+                      description: Summary information of the resume.
+                    qualification:
+                      type: object
+                      description: Qualification information of the resume.
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        "404":
+          description: Data Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorMessage:
+                    type: string
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorMessage:
+                    type: string
+
+  /server/api/resumeDataList:
+    post:
+      tags: [Upload & Convert]
+      summary: Send Resume Data to Client Side
+      description: |
+        Send resume data to the client side from Vercel using functions.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: string
+                  description: The ID of the user.
+                file_id:
+                  type: string
+                  description: The ID of the file.
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+      properties:
+        FileData:
+          type: object
+          properties:
+            details:
+              type: object
+              description: Details information of the resume.
+            skills:
+              type: object
+              description: Skills information of the resume.
+            experience:
+              type: object
+              description: Experience information of the resume.
+            languages:
+              type: object
+              description: Languages information of the resume.
+            projects:
+              type: object
+              description: Projects information of the resume.
+            education:
+              type: object
+              description: Education information of the resume.
+            summary:
+              type: object
+              description: Summary information of the resume.
+            qualification:
+              type: object
+              description: Qualification information of the resume.
+            message:
+              type: string
+            fileId:
+              type: string
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorMessage:
+                  type: string
+  /server/api/deleteProject:
+    delete:
+      tags:
+        - Preview
+      summary: Delete Project Files
+      description: Deletes multiple project files associated with the given user ID and file IDs
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: string
+                  description: The ID of the user associated with the project files to be deleted
+                file_ids:
+                  type: array
+                  items:
+                    type: string
+                  description: An array of file IDs to be deleted
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Indicates that all files were deleted successfully
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Indicates an invalid request format
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorMessage:
+                    type: string
+                    description: Indicates an internal server error occurred
+                  error:
+                    type: string
+                    description: Additional error details

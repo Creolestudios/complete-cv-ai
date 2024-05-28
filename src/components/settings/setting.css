@@ -1,0 +1,59 @@
+.tab-tag {
+  width: 80%;
+  justify-content: space-between;
+  flex-direction: row;
+  margin: auto;
+  margin-top: 20px;
+  height: 60px;
+  font-size: 18px;
+  font-family: "General Sans";
+}
+.tab-tag h2 {
+  font-size: 30px;
+  line-height: 40px;
+  font-weight: 600;
+  margin-bottom: 20px !important;
+  margin-top: 0;
+}
+.ant-tabs-nav {
+  margin: 0 !important;
+}
+.ant-tabs-nav::before {
+  border-bottom: 0 !important;
+}
+.ant-tabs-nav-wrap .ant-tabs-nav-list .ant-tabs-tab {
+  padding-top: 0;
+  padding-bottom: 8px;
+}
+.ant-tabs-nav-wrap .ant-tabs-nav-list .ant-tabs-tab .ant-tabs-tab-btn {
+  color: #777e90 !important;
+  font-size: 16px;
+  line-height: 24px;
+  font-family: "General Sans";
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+.ant-tabs-nav-wrap
+  .ant-tabs-nav-list
+  .ant-tabs-tab.ant-tabs-tab-active
+  .ant-tabs-tab-btn {
+  color: #fd8205 !important;
+}
+
+.ant-tabs-nav-wrap .ant-tabs-nav-list .ant-tabs-ink-bar {
+  border-color: #fd8205 !important;
+  background: #fd8205 !important;
+}
+.form-main {
+  padding: 30px 0;
+}
+
+@media only screen and (max-width: 768px) {
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+}
+
+@media only screen and (max-width: 1280px) {
+}

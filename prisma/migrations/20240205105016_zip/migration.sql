@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "DashTable" ALTER COLUMN "ZipURL" DROP DEFAULT;

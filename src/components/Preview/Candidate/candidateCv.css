@@ -1,0 +1,111 @@
+.candidateCv-main {
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  padding: 0px 5px;
+}
+.candidateCv-select-main {
+  display: flex;
+  align-items: center;
+  width: 214px;
+  margin-top: 5px;
+  padding: 0px 10px 3px 14px;
+  justify-content: space-between;
+  border-radius: 4px;
+  background: var(--Neutral-1, #fcfcfd);
+}
+.Cv-dropdown-text {
+  display: flex;
+  align-items: center;
+  gap: 90px;
+}
+.candidate-file-container {
+  height: 814px;
+  padding: 10px 18px 0px 16px;
+}
+.candidate-file-section {
+  height: 800px;
+}
+.candidateCv-dropdown {
+  display: flex;
+  width: 318px;
+  padding: 12px;
+  align-items: flex-start;
+  gap: 12px;
+}
+.preview-dragger {
+  width: 636px !important;
+  height: 242px !important;
+  background-color: #ebe6e6;
+  margin-top: 200px;
+}
+.candidate-upload-icon-svg {
+  height: 100%;
+}
+.candidate-upload-icon-svg .upload-img-svg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.edit-cv {
+  background-color: #fff;
+  padding: 12px;
+  border-radius: 4px;
+}
+
+.edit-cv .edit-cv-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.edit-cv-heading-child {
+  display: flex;
+  align-items: center;
+}
+
+.edit-cv .edit-cv-heading .edit-cv-heading-text {
+  color: var(--Neutral-8, #141416);
+
+  /* Subtitle/Large */
+  font-family: "General Sans";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px; /* 140% */
+}
+
+.edit-cv .edit-cv-heading .ant-btn {
+  display: flex;
+  padding: 2px 8px;
+  align-items: center;
+  gap: 4px;
+  border-radius: 29px;
+  border: 1px solid var(--Neutral-3, #e6e8ec);
+  color: var(--Neutral-5, #777e90) !important;
+  margin-left: 12px;
+  text-align: center;
+  font-family: "General Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  background-color: #fff !important;
+}
+
+.edit-cv .edit-cv-heading .ant-btn .pen-icon {
+  color: var(--Neutral-5, #777e90) !important;
+  display: flex;
+  align-items: center;
+}
+
+.edit-cv .edit-cv-heading .ant-btn:hover {
+  color: 777e90 !important;
+  border-color: #e6e8ec !important;
+}
+
+.edit-info-section {
+  border: 1px solid #e6e8ec;
+  border-radius: 4px;
+  padding: 12px;
+}

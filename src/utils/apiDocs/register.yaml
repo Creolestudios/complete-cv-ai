@@ -1,0 +1,80 @@
+paths:
+  /server/api/UserRegistration:
+    post:
+      tags: [Auth]
+      summary: Register a new user
+      description: Register a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+                firstname:
+                  type: string
+                lastname:
+                  type: string
+              required:
+                - email
+                - password
+                - firstname
+                - lastname
+      responses:
+        "201":
+          description: User registered successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  user_id:
+                    type: string
+                  user:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      username:
+                        type: string
+                      email:
+                        type: string
+                      Firstname: # Changed from 'Firstname' to 'firstname' to match property name case
+                        type: string
+                      Lastname: # Changed from 'Lastname' to 'lastname' to match property name case
+                        type: string
+                      mobile:
+                        type: string
+                      Role:
+                        type: string
+                      isActive:
+                        type: boolean
+                      verified:
+                        type: boolean
+                      timeSpend:
+                        type: string
+        "400":
+          description: Bad request - missing or invalid parameters
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string

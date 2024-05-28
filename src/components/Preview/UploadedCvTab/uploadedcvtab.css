@@ -1,0 +1,221 @@
+@keyframes collapse-left {
+  0% {
+    max-width: 0;
+  }
+  100% {
+    max-width: 215px;
+  }
+}
+
+@keyframes collapse-right {
+  /* 0% - Set initial height */
+  0% {
+    max-width: 215px;
+  }
+  100% {
+    max-width: 0;
+  }
+}
+
+.cv-tab {
+  max-width: 215px;
+  width: 100%;
+  position: relative;
+  border: 1px solid var(--Neutral-3, #e6e8ec);
+  animation-name: collapse-left;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.cv-tab.collapse {
+  max-width: 0;
+  animation-name: collapse-right;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.cv-tab.collapse .vertical-tabs {
+  animation-delay: 0.5s;
+  display: none;
+}
+
+.cv-tab .vertical-tabs {
+  border-radius: 4px;
+
+  background: var(--Neutral-1, #fcfcfd);
+  height: 859px;
+}
+
+.cv-tab .close-drawer-btn {
+  position: absolute;
+  top: 50%;
+  right: -8px;
+  width: 16px;
+  height: 60px;
+}
+.cv-tab .close-drawer-btn .ant-btn {
+  width: 16px;
+  padding: 0;
+  height: 100%;
+}
+
+.cv-tab .close-drawer-btn .ant-btn:hover {
+  color: unset !important;
+  border-color: #d9d9d9 !important;
+}
+
+.cv-tab .close-drawer-btn .ant-btn img {
+  color: transparent;
+  rotate: 90deg;
+  width: 100%;
+  height: auto;
+}
+
+.cv-tab.collapse .close-drawer-btn .ant-btn img {
+  rotate: 270deg;
+}
+
+.cv-tab .vertical-tabs .ant-tabs {
+  display: unset;
+}
+
+.cv-tab .vertical-tabs .ant-tabs .ant-tabs-nav {
+  width: 100%;
+}
+
+.cv-tab .vertical-tabs .ant-tabs .ant-tabs-tab {
+  padding: 8px 8px 8px 16px;
+  margin: 10px 10px 0 10px !important;
+}
+
+.cv-tab .vertical-tabs .ant-tabs .ant-tabs-tab:hover {
+  color: #fd8205;
+}
+
+.cv-tab .vertical-tabs .ant-tabs .ant-tabs-nav .ant-tabs-ink-bar {
+  background: unset;
+}
+
+.vertical-tabs .ant-tabs .ant-tabs-nav .ant-tabs-tab-active {
+  background-color: #fff2ee;
+  margin: 8px;
+  border-radius: 4px;
+}
+
+.vertical-tabs .ant-tabs .ant-tabs-nav .ant-tabs-tab-active .ant-tabs-tab-btn {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  color: #fd8205 !important;
+}
+
+.vertical-tabs .ant-tabs .ant-tabs-tab .ant-tabs-tab-btn span:nth-child(2) {
+  max-width: 145px;
+  word-wrap: break-word;
+  text-wrap: wrap;
+  text-align: left;
+}
+
+.vertical-tabs
+  .ant-tabs
+  .ant-tabs-nav
+  .ant-tabs-tab-active
+  .ant-tabs-tab-btn
+  .ant-tabs-tab-icon {
+  margin-inline-end: 0px;
+}
+
+.vertical-tabs .ant-tabs .ant-tabs-nav .ant-tabs-tab-btn {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  width: 100%;
+  font-family: "General Sans";
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.popup-content .icons {
+  height: 24px;
+  width: 24px;
+  margin-right: 16px;
+}
+
+.popup-content .icons img {
+  height: 24px;
+  width: 24px;
+}
+
+.popup-content .rename-cv {
+  color: var(--Neutral-8, #141416);
+  text-align: center;
+  font-family: "General Sans";
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  cursor: pointer;
+}
+
+.popup-content .delete-cv {
+  color: #db0000;
+  text-align: center;
+  font-family: "General Sans";
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  cursor: pointer;
+}
+
+.rename-delete-cv-popover {
+  width: 24px;
+  display: flex;
+  height: 24px;
+}
+
+.rename-delete-cv-popover .anticon {
+  width: 24px;
+  height: 24px;
+}
+
+.rename-delete-cv-popover .anticon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.cv-tab .vertical-tabs .upload-cv-btn .ant-btn {
+  border-radius: 4px;
+  border: 1px solid var(--secondary-7, #fd8205);
+  color: var(--secondary-7, #fd8205);
+
+  /* Body/Small */
+  font-family: "General Sans";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px; /* 171.429% */
+}
+
+.cv-tab .vertical-tabs .upload-cv-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.cv-tab .vertical-tabs .upload-cv-btn .upload-icon {
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+}
+
+.cv-tab .vertical-tabs .upload-cv-btn .ant-btn {
+  background: unset;
+  width: 90%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 40px;
+}
+
+.cv-tab .vertical-tabs .upload-cv-btn .ant-btn:hover {
+  color: #fd8205;
+  border-color: #fd8205;
+}

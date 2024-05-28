@@ -1,0 +1,119 @@
+.converted-main {
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  padding: 0px 5px;
+}
+
+.converted-main .template-text {
+  color: #777e90;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.converted-main .converted-text-select {
+  display: flex;
+}
+
+.Convert-name-section .edit-cv-btn {
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  background: var(--Neutral-2, #f4f5f6);
+  width: 68px;
+  height: 30px;
+  justify-content: center;
+  margin-left: 24px;
+  cursor: pointer;
+}
+
+.Convert-name-section .edit-cv-btn img {
+  margin-right: 4px;
+}
+
+.converted-select-main {
+  display: flex;
+  width: 214px;
+  margin-top: 5px;
+  padding: 0px 10px 3px 14px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 4px;
+  background: var(--Neutral-1, #fcfcfd);
+}
+.converted-file-container {
+  height: 814px;
+  padding: 10px 18px 0px 16px;
+}
+.converted-file-section {
+  height: 800px;
+}
+.converted-dropdown {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.candidate-filename {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 62px;
+  background: var(--Neutral-2, #f4f5f6);
+}
+.header-buttons {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+#pdf-controls {
+  display: none;
+}
+.convertData-loading {
+  display: flex;
+  padding-top: 250px;
+}
+.Convert-name-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 28px;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+
+.converted-dropdown
+  .ant-dropdown-menu
+  .ant-dropdown-menu-item
+  .template-image-text {
+  margin-left: 10px;
+  font-size: 16px;
+  width: 145px;
+}
+
+.converted-dropdown .ant-dropdown-menu .ant-dropdown-menu-item .active {
+  border: 1px solid #fd8205;
+  border-radius: 5px;
+}
+
+.converted-dropdown
+  .ant-dropdown-menu
+  .ant-dropdown-menu-item
+  .active::after {
+  content: url("../../../../public/assets/Group.svg");
+  margin-top: 5px;
+}
+
+.converted-dropdown
+  .ant-dropdown-menu
+  .ant-dropdown-menu-item
+  .dropdown-items {
+  display: flex;
+  padding: 5px 10px;
+}
+.hide {
+  display: none !important;
+}

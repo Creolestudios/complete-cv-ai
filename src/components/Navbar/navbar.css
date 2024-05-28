@@ -1,0 +1,241 @@
+.nav-main {
+  height: 229px;
+  flex-shrink: 0;
+  background: #ffc950;
+  position: relative;
+  overflow: hidden;
+}
+.nav-section {
+  display: flex;
+  padding: 10px 40px;
+  justify-content: space-between;
+  align-items: center;
+  /* border-bottom: 0.5px solid black; */
+}
+.nav-logo {
+  padding-left: 40px;
+  padding-top: 16px;
+}
+.header-image {
+  width: 73px;
+  height: 41px;
+  flex-shrink: 0;
+}
+.nav-text {
+  width: 430px;
+  height: 64px;
+  margin-left: 160px;
+}
+.user-name {
+  display: flex;
+  padding: 10px;
+  font-size: 16px;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+}
+.nav-logout {
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px 10px;
+}
+.nav-dashboard {
+  display: flex;
+  height: 15px;
+  justify-content: flex-start;
+  padding: 10px 10px;
+}
+.nav-settings {
+  display: flex;
+  height: 24px;
+  justify-content: flex-start;
+  padding: 10px 10px;
+  border-bottom: 0.4px solid #e6e8ec;
+}
+h5 {
+  margin: 0;
+  color: var(--Neutral-8, #141416);
+  font-family: "General Sans" !important;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px;
+}
+.username {
+  float: right;
+  margin-top: 50px;
+  margin-right: -52px;
+  border: 1px solid black;
+  padding: 5px;
+  font-family: "General Sans" !important;
+}
+.nav-userLogo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fe632f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.userlogo-text {
+  text-transform: uppercase;
+  padding: 5px;
+  color: white;
+  font-family: "General Sans" !important;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500 !important;
+  line-height: 28px; /* 140% */
+}
+.rectangle {
+  position: absolute;
+}
+
+.rectangle1 {
+  width: 156px;
+  height: 211px;
+  top: 30px;
+  right: 217px;
+  background-color: #fe632f;
+}
+
+.rectangle2 {
+  width: 270px;
+  height: 211px;
+  top: 60px;
+  right: 284px;
+  background-color: #ffe1d6;
+}
+
+.rectangle3 {
+  width: 108px;
+  height: 146px;
+  top: 123px;
+  right: 419px;
+  background-color: #fd8205;
+}
+
+.nav-dropdown1 {
+  width: 245px;
+  height: 220px;
+}
+.ant-dropdown-menu-item:first-child {
+  background-color: white !important;
+  /* pointer-events: none; */
+}
+@media screen and (max-width: 1199px) {
+  h5 {
+    margin: 0;
+    color: var(--Neutral-8, #141416);
+    font-family: "General Sans" !important;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+  }
+  .rectangle {
+    position: absolute;
+  }
+
+  .rectangle1 {
+    width: 156px;
+    height: 211px;
+    top: 30px;
+    right: 86px;
+    background-color: #fe632f;
+  }
+
+  .rectangle2 {
+    width: 270px;
+    height: 211px;
+    top: 60px;
+    right: 118px;
+    background-color: #ffe1d6;
+  }
+
+  .rectangle3 {
+    width: 108px;
+    height: 146px;
+    top: 123px;
+    right: 260px;
+    background-color: #fd8205;
+  }
+}
+@media screen and (max-width: 991px) {
+  h5 {
+    margin: 0;
+    color: var(--Neutral-8, #141416);
+    font-family: "General Sans" !important;
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+  }
+  .nav-text {
+    width: 430px;
+    height: 64px;
+    margin-left: 80px;
+  }
+  .rectangle {
+    position: absolute;
+  }
+
+  .rectangle1 {
+    width: 156px;
+    height: 211px;
+    top: 30px;
+    right: 102px;
+    background-color: #fe632f;
+  }
+
+  .rectangle2 {
+    width: 230px;
+    height: 200px;
+    top: 60px;
+    right: 126px;
+    background-color: #ffe1d6;
+  }
+
+  .rectangle3 {
+    width: 108px;
+    height: 146px;
+    top: 123px;
+    right: 223px;
+    background-color: #fd8205;
+  }
+}
+@media screen and (max-width: 767px) {
+  h5 {
+    margin: 0;
+    color: var(--Neutral-8, #141416);
+    font-family: "General Sans" !important;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+  }
+  .rectangle1 {
+    display: none;
+  }
+
+  .rectangle2 {
+    display: none;
+  }
+
+  .rectangle3 {
+    display: none;
+  }
+}
+@media screen and (max-width: 600px) {
+  h5 {
+    margin: 0;
+    color: var(--Neutral-8, #141416);
+    font-family: "General Sans" !important;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+    width: 253px;
+  }
+}

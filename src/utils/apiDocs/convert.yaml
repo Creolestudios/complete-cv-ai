@@ -1,0 +1,310 @@
+paths:
+  /server/api/convertBlobdata:
+    post:
+      tags:
+        - Upload & Convert
+      summary: Converting to  resume format
+      description: Converting to  resume format
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: string
+                filenamePrefix:
+                  type: string
+                file_id:
+                  type: string
+                file_name:
+                  type: string
+              required:
+                - user_id
+                - filenamePrefix
+                - file_id
+                - file_name
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  qualificationBlob:
+                    type: object
+                    description: Information about the stored PDF file blob.
+                    properties:
+                      url:
+                        type: string
+                        format: uri
+                      name:
+                        type: string
+                      contentType:
+                        type: string
+                  fileId:
+                    type: string
+                  isConvert:
+                    type: boolean
+                  message:
+                    type: string
+                  fileName:
+                    type: string
+        "400":
+          description: Bad request - missing or invalid parameters
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorMessage:
+                    type: string
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorMessage:
+                    type: string
+
+  /server/api/deleteProject:
+    delete:
+      tags: [Preview]
+      summary: Delete Project for Preview page
+      description: Delete project files for preview page.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: string
+                file_ids:
+                  type: array
+                  items:
+                    type: string
+              required:
+                - user_id
+                - file_ids
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        "400":
+          description: Bad request - missing or invalid parameters
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorMessage:
+                    type: string
+
+  /server/api/saveProject:
+    post:
+      tags: [Preview]
+      summary: Save project and  Create Zip
+      description: Save project and create a zip file.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: string
+                files:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      file_id:
+                        type: string
+                      candidateFile_name:
+                        type: string
+                      templateId:
+                        type: string
+              required:
+                - user_id
+                - files
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        file_id:
+                          type: string
+                        candidateFile_name:
+                          type: string
+                        user_url:
+                          type: string
+                        _url:
+                          type: string
+                        zipUrl:
+                          type: string
+                        lastsaved:
+                          type: string
+                        templateId:
+                          type: string
+                        zip_url:
+                          type: string
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+
+  /server/api/downloadzip:
+    post:
+      tags: [Preview]
+      summary: Download Zip
+      description: Download a zip file containing multiple files.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: string
+                files:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      file_id:
+                        type: string
+                      candidate_name:
+                        type: string
+              required:
+                - user_id
+                - files
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  data:
+                    type: object
+                    description: Information about the uploaded zip file.
+                    properties:
+                      url:
+                        type: string
+                      name:
+                        type: string
+                      contentType:
+                        type: string
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+  /server/api/deletecv:
+    delete:
+      tags:
+        - Preview
+      summary: Delete  CV
+      description: Deletes the candidate CV files associated with the given file ID and user ID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                file_id:
+                  type: string
+                  description: The ID of the candidate CV file to be deleted
+                user_id:
+                  type: string
+                  description: The ID of the user associated with the candidate CV file
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Indicates that both files were deleted successfully
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Indicates that the candidate PDF was deleted successfully, but the  PDF is missing
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Indicates that the candidate PDF URL is missing
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorMessage:
+                    type: string
+                    description: Indicates an internal server error occurred
+                  error:
+                    type: string
+                    description: Additional error details

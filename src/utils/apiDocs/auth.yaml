@@ -1,0 +1,286 @@
+paths:
+  /server/api/auth:
+    post:
+      tags: [Auth]
+      summary: User Login
+      description: This endpoint allows users to log in to the application.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+              required:
+                - email
+                - password
+      responses:
+        "200":
+          description: Successful login
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  isLoggedIn:
+                    type: boolean
+                  message:
+                    type: string
+                  user_id:
+                    type: integer
+                  token:
+                    type: string
+                  user:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      username:
+                        type: string
+                      email:
+                        type: string
+                      Firstname:
+                        type: string
+                      Lastname:
+                        type: string
+                      mobile:
+                        type: string
+                      Role:
+                        type: string
+                      isActive:
+                        type: boolean
+                      verified:
+                        type: boolean
+                      timeSpend:
+                        type: string
+        "401":
+          description: Unauthorized. Either email or password is incorrect, or the account is not verified or active.
+        "500":
+          description: Internal Server Error
+
+  /server/api/verifyEmail:
+    post:
+      tags: [Auth]
+      summary: Verify Email and Send Reset Password Link
+      description: |
+        Verify user email and send a reset password link to the user's email address.
+        If the user is already verified, return an error message.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+              required:
+                - email
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        "404":
+          description: User Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+
+  /server/api/resendEmail:
+    post:
+      tags: [Auth]
+      summary: For Resend Verify Email Link
+      description: |
+        For Resend Verify user email
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+              required:
+                - email
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        "404":
+          description: User Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+  paths:
+  /server/api/resetPassword:
+    put:
+      tags: [Auth]
+      summary: Change Password (reset password)
+      description: Change the password for a user.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: The email of the user.
+                password:
+                  type: string
+                  description: The new password.
+                confirmPassword:
+                  type: string
+                  description: The confirmation of the new password.
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  user:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        description: The ID of the user.
+                      username:
+                        type: string
+                        description: The username of the user.
+                      email:
+                        type: string
+                        description: The email of the user.
+                  status:
+                    type: integer
+                    description: The status code of the response.
+                    example: 200
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+
+  /server/api/logout:
+    get:
+      tags:
+        - Auth
+      summary: Logout
+      description: Logout API
+      parameters:
+        required: false
+      responses:
+        "200":
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: The success message.
+                  success:
+                    type: boolean
+                    description: Indicates whether the request was successful.
+                    example: true
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message indicating internal server error.
+                    enum:
+                      - Internal

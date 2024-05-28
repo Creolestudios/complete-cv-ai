@@ -1,0 +1,945 @@
+paths:
+  /server/api/admin-teamList:
+    get:
+      tags:
+        - Admin
+      summary: All Teams List
+      description: Retrieve a list of teams with their details.
+      security:
+        - bearerAuth:
+          type: http
+          scheme: bearer
+          bearerFormat: JWT
+          description: The JWT token is required for this API.
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  teamList:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          description: The ID of the team.
+                        teamName:
+                          type: string
+                          description: The name of the team.
+                        status:
+                          type: string
+                          description: The status of the team.
+                        description:
+                          type: string
+                          description: The description of the team.
+                        memberCount:
+                          type: integer
+                          description: The number of members in the team.
+                        activeSince:
+                          type: string
+                          format: date
+                          description: The date when the team became active.
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: The error message.
+                  error:
+                    type: string
+                    description: The error details.
+        "401":
+          description: Unauthorized to perform this action
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: The error message.
+
+  paths:
+  /server/api/admin-listTeamData:
+    post:
+      tags:
+        - Admin
+      summary: Team Member List
+      description: Retrieve the list of members belonging to a specific team.
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                teamId:
+                  type: string
+                  description: The ID of the team.
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  teamDetails:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        description: The ID of the team.
+                      teamName:
+                        type: string
+                        description: The name of the team.
+                      members:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              description: The ID of the member.
+                            username:
+                              type: string
+                              description: The username of the member.
+                            Firstname:
+                              type: string
+                              description: The first name of the member.
+                            Lastname:
+                              type: string
+                              description: The last name of the member.
+                            email:
+                              type: string
+                              format: email
+                              description: The email address of the member.
+                            Role:
+                              type: string
+                              description: The role of the member.
+                            mobile:
+                              type: string
+                              description: The mobile number of the member.
+                            isActive:
+                              type: boolean
+                              description: The active status of the member.
+        "404":
+          description: Team Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: The error message.
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: The error message.
+
+  /server/api/admin-createTeam:
+    post:
+      tags:
+        - Admin
+      summary: Create Team
+      description: Create a new team along with its members.
+      security:
+        - bearerAuth:
+          type: http
+          scheme: bearer
+          bearerFormat: JWT
+          description: The JWT token is required for this API.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                teamName:
+                  type: string
+                  description: The name of the team.
+                teamDescription:
+                  type: string
+                  description: The description of the team.
+                status:
+                  type: string
+                  description: The status of the team (Active or Suspended).
+                members:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      username:
+                        type: string
+                        description: The username of the member.
+                      email:
+                        type: string
+                        format: email
+                        description: The email address of the member.
+                      Firstname:
+                        type: string
+                        description: The first name of the member.
+                      Lastname:
+                        type: string
+                        description: The last name of the member.
+                      mobile:
+                        type: string
+                        description: The mobile number of the member.
+                      Role:
+                        type: string
+                        description: The role of the member.
+      responses:
+        "201":
+          description: Team Created Successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: The success message.
+                  team:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        description: The ID of the team.
+                      teamName:
+                        type: string
+                        description: The name of the team.
+                      description:
+                        type: string
+                        description: The description of the team.
+                      status:
+                        type: string
+                        description: The status of the team.
+                      isActive:
+                        type: boolean
+                        description: The active status of the team.
+                      members:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              description: The ID of the member.
+                            username:
+                              type: string
+                              description: The username of the member.
+                            Firstname:
+                              type: string
+                              description: The first name of the member.
+                            Lastname:
+                              type: string
+                              description: The last name of the member.
+                            email:
+                              type: string
+                              format: email
+                              description: The email address of the member.
+                            Role:
+                              type: string
+                              description: The role of the member.
+                            mobile:
+                              type: string
+                              description: The mobile number of the member.
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: The error message.
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: The error message.
+        "401":
+          description: Unauthorized to perform this action
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: The error message.
+
+  /server/api/admin-editTeam:
+    post:
+      tags:
+        - Admin
+      summary: Edit Team
+      description: Endpoint for editing team details and members
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                teamId:
+                  type: string
+                teamName:
+                  type: string
+                status:
+                  type: string
+                teamDescription:
+                  type: string
+                members:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      username:
+                        type: string
+                      email:
+                        type: string
+                      Firstname:
+                        type: string
+                      Lastname:
+                        type: string
+                      mobile:
+                        type: string
+                      Role:
+                        type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+
+  /server/api/admin-teamMemberList:
+    post:
+      tags:
+        - Team
+      summary: Team Member List
+      description: Retrieve a list of team members for a given team ID
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                teamId:
+                  type: string
+                  description: The ID of the team to retrieve members for.
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  teamMembers:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          description: The ID of the team member.
+                        username:
+                          type: string
+                          description: The username of the team member.
+                        Firstname:
+                          type: string
+                          description: The first name of the team member.
+                        Lastname:
+                          type: string
+                          description: The last name of the team member.
+                        Role:
+                          type: string
+                          description: The role of the team member.
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+
+  /server/api/admin-editMember:
+    put:
+      tags:
+        - Team
+      summary: Edit User
+      description: Endpoint for editing user profiles
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                username:
+                  type: string
+                email:
+                  type: string
+                Firstname:
+                  type: string
+                Lastname:
+                  type: string
+                mobile:
+                  type: string
+                Role:
+                  type: string
+                status:
+                  type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  user:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        description: The ID of the user.
+                      username:
+                        type: string
+                        description: The username of the user.
+                      email:
+                        type: string
+                        description: The email of the user.
+                      Firstname:
+                        type: string
+                        description: The first name of the user.
+                      Lastname:
+                        type: string
+                        description: The last name of the user.
+                      mobile:
+                        type: string
+                        description: The mobile number of the user.
+                      Role:
+                        type: string
+                        description: The role of the user.
+                      isActive:
+                        type: boolean
+                        description: Indicates whether the user is active.
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+
+  /server/api/admin-inviteTeamMember:
+    post:
+      tags:
+        - Team
+      summary: Invite Team Member
+      description: Endpoint for inviting team members
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                teamId:
+                  type: string
+                  description: The ID of the team to which the user will be invited.
+                username:
+                  type: string
+                email:
+                  type: string
+                Firstname:
+                  type: string
+                Lastname:
+                  type: string
+                mobile:
+                  type: string
+                Role:
+                  type: string
+                status:
+                  type: string
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  user:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        description: The ID of the invited user.
+                      username:
+                        type: string
+                        description: The username of the invited user.
+                      email:
+                        type: string
+                        description: The email of the invited user.
+                      Firstname:
+                        type: string
+                        description: The first name of the invited user.
+                      Lastname:
+                        type: string
+                        description: The last name of the invited user.
+                      mobile:
+                        type: string
+                        description: The mobile number of the invited user.
+                      Role:
+                        type: string
+                        description: The role of the invited user.
+                      isActive:
+                        type: boolean
+                        description: Indicates whether the invited user is active.
+                  team:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        description: The ID of the team.
+                      name:
+                        type: string
+                        description: The name of the team.
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+  /server/api/admin-memberData:
+    post:
+      tags:
+        - Team
+      summary: Team Member Data
+      description: Endpoint for Team member data
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                userId:
+                  type: string
+                  description: The ID of the user whose settings are being retrieved.
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  user:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        description: The ID of the user.
+                      username:
+                        type: string
+                        description: The username of the user.
+                      email:
+                        type: string
+                        description: The email of the user.
+                      Firstname:
+                        type: string
+                        description: The first name of the user.
+                      Lastname:
+                        type: string
+                        description: The last name of the user.
+                      mobile:
+                        type: string
+                        description: The mobile number of the user.
+                      Role:
+                        type: string
+                        description: The role of the user.
+                      isActive:
+                        type: boolean
+                        description: Indicates whether the user is active.
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+  /server/api/admin-memberStatusList:
+    post:
+      tags:
+        - Team
+      summary: Fetch Team Members status
+      description: Endpoint for fetching team members based on status
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                teamId:
+                  type: string
+                  description: The ID of the team whose members are being fetched.
+                status:
+                  type: string
+                  description: The status of the team members to be fetched. Can be "Active", "Suspended", "Active,Suspended", or "all".
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  teamDetails:
+                    type: object
+                    description: Details of the team and its members.
+                    properties:
+                      id:
+                        type: string
+                        description: The ID of the team.
+                      members:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              description: The ID of the team member.
+                            username:
+                              type: string
+                              description: The username of the team member.
+                            Firstname:
+                              type: string
+                              description: The first name of the team member.
+                            Lastname:
+                              type: string
+                              description: The last name of the team member.
+                            Role:
+                              type: string
+                              description: The role of the team member.
+                            isActive:
+                              type: boolean
+                              description: Indicates whether the team member is active.
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+  /server/api/admin-removeMember:
+    post:
+      tags:
+        - Team
+      summary: Remove User from Team
+      description: Endpoint for removing a user from a team
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                teamId:
+                  type: string
+                  description: The ID of the team from which the user is being removed.
+                userId:
+                  type: string
+                  description: The ID of the user being removed from the team.
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Confirmation message indicating successful removal of the user from the team.
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Error message indicating missing required fields or invalid data.
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Error message indicating that the user is not a member of the team.
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Error message indicating an internal server error.
+
+  /server/api/admin-search:
+    post:
+      tags:
+        - Admin
+      summary: Search Team
+      description: Endpoint for searching teams
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                query:
+                  type: string
+                  description: The search query.
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  teamList:
+                    type: array
+                    description: List of teams matching the search criteria.
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          description: The ID of the team.
+                        teamName:
+                          type: string
+                          description: The name of the team.
+                        status:
+                          type: string
+                          description: The status of the team.
+                        description:
+                          type: string
+                          description: The description of the team.
+                        memberCount:
+                          type: integer
+                          description: The number of members in the team.
+                        activeSince:
+                          type: string
+                          format: date
+                          description: The date since the team has been active (formatted as DD/MM/YYYY).
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Error message indicating an internal server error.
+
+  /server/api/admin-statusTeamList:
+    post:
+      tags:
+        - Team
+      summary: Fetch Team Status List
+      description: Endpoint for fetching team list based on status
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  description: The status of teams to fetch ("Active", "Suspended", "Active,Suspended", or "all").
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  teamList:
+                    type: array
+                    description: List of teams based on the provided status.
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          description: The ID of the team.
+                        teamName:
+                          type: string
+                          description: The name of the team.
+                        status:
+                          type: string
+                          description: The status of the team.
+                        description:
+                          type: string
+                          description: The description of the team.
+                        memberCount:
+                          type: integer
+                          description: The number of members in the team.
+                        activeSince:
+                          type: string
+                          format: date
+                          description: The date since the team has been active (formatted as DD/MM/YYYY).
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Error message indicating no teams found.
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Error message indicating an internal server error.
